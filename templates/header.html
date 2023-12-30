@@ -1,0 +1,27 @@
+<header>
+  <nav  class="navbar bg-body-tertiary shadow-sm sticky-top bg-white">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/static/logo.svg" alt="Atlantis" width="30" height="24">  Atlantis
+      </a>
+      <a  href="{{ url_for('register') }}" class="nav-link text-body-secondary ">Register</a>
+      <a  href="{{ url_for('login') }}" class="nav-link text-body-secondary ">Login</a>
+
+      <a  href="{{ url_for('job_post') }}" class="nav-link text-body-secondary ">Post</a>
+
+      <a  href="{{ url_for('contact_us') }}" class="nav-link text-body-secondary ">Contact Us</a>
+
+      <a  href="{{ url_for('faq') }}" class="nav-link text-body-secondary ">FAQ</a>
+      
+      <form class="d-flex" role="search" action="{{ url_for('search_results') }}">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div style="height:46px"></div>
+</header>
+<section>
+  <h1 class="text-center mt-2 mb-4">Atlantis Careers</h1>
+  <img class="img-fluid" id="banner" src="static/atlantis home.jpg" width="" height="320" alt="image of atlantis">
+</section>

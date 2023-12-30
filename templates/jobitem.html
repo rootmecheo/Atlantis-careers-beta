@@ -1,0 +1,22 @@
+<section>
+  <div class="border-bottom row" style="padding-bottom:8px; margin-bottom:4px">
+
+    <div class="col-9" style="margin-bottom: 8px">
+       <a href="" style="color:rgb(120,120,120)" >{{job['title']}}</a>
+      <div>
+         <p>  <b>Location:</b>  {{job['location']}}</p>
+        {% if "salary" in job%}
+        <p>  <b>Salary:</b> {{ job['currency']}}  {{job['salary']}}</p>
+        {% endif %}
+
+      </div>
+
+    </div>
+    <div class="col-3" style="padding-top: 16px">
+      <a href="" type="button" class="btn btn-outline-secondary">Apply</a>
+      <a href="" type="button" class="btn btn-outline-warning">Delete</a>
+    </div>
+
+  </div>
+
+</section>

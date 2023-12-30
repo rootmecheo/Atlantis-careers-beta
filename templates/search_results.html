@@ -1,0 +1,18 @@
+
+{% extends"base.html" %}
+{% block content %}
+  <div class="container ">
+    <h3> Search Results </h3>
+   
+    <div>
+      {% for job in jobs %}
+        {% include 'jobitem.html' %}
+      {% endfor %}
+    </div>
+
+    <p>first it's filters</p>
+    <p>then it's listings</p>
+    <p>next create outline of each listing</p>
+    <p>next open indivdual job post and application</p>
+  </div>
+{% endblock %}   

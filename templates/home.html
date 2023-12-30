@@ -1,0 +1,33 @@
+{% extends"base.html" %}
+{% block content %}
+  <div class="container ">
+    <h1>About Us</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo nulla vitae consequat posuere. Aliquam efficitur felis elit, finibus elementum risus maximus mattis. Praesent volutpat, augue finibus suscipit molestie, eros lorem aliquet odio, eu vestibulum risus nibh a ligula. Nullam in varius eros, lacinia euismod nulla. Aenean accumsan maximus lorem quis tristique. Nam a sapien viverra, congue tortor at, porta mauris. Nullam dictum erat at augue faucibus, ut ultrices lorem volutpat. Donec vel eros vitae urna tincidunt pulvinar. In pharetra purus ut leo bibendum, a auctor est rutrum. Vivamus posuere tempor orci nec vehicula. Nunc eget nunc quis est efficitur gravida eu quis mauris. Proin volutpat congue odio, vitae posuere sem sodales ut. Fusce semper turpis vitae nunc dignissim, eu fringilla massa pellentesque.
+        </p>
+      </div>
+      
+      <div class="col-md-6">
+        <img class="img-fluid" src="/static/health worker.jpg" width="" height="240" alt="image of atlantis">
+      </div>
+
+      <div class="row mt-4">
+        <div class="col col-9">
+           <h2 class="text-center mt-2 mb-4">Job Opennings</h2>
+        </div>
+        <div class="col" >
+           <a href="{{ url_for('job_post') }}" type="button" class="btn btn-outline-secondary"> Post New Job</a>
+        </div>
+
+      </div>
+
+      <div>
+        {% for job in jobs %}
+          {% include 'jobitem.html' %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}   
