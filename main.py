@@ -3,7 +3,7 @@ from datetime import datetime
 from flask import Flask, redirect, render_template, request, url_for, jsonify
 from flask_bootstrap import Bootstrap5
 
-from database import add_client, add_job_to_db, load_jobs_from_db
+from database import add_client, add_job_to_db, load_jobs_from_db, remove_job_from_db
 
 from forms import ContactForm, FAQForm, JobPostForm, LoginForm, RegisterForm
 
@@ -44,6 +44,18 @@ def job_post():
     add_job_to_db(data)
     return redirect(url_for("home"))
   return render_template('job_post.html', form=form, year=current_year)
+
+@app.route("/job/<int:id>/delete")
+def delete_job(jobID):
+    # Assuming load_jobs_from_db returns the job with the given id
+  job = load_jobs_from_db(jobID)[0]
+
+  if job:
+    remove_job_from_db(id)
+    return jsonify(job)
+    # return redirect(url_for("home"))  
+  else:
+    return ' did not successfully delete you idiot'
 
 @app.route("/api/jobs")
 def list_jobs():

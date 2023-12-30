@@ -1,0 +1,7 @@
+Flask
+Flask-WTF
+Flask-CKEditor
+gunicorn
+sqlalchemy
+mysql
+pymysql

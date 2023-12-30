@@ -70,3 +70,10 @@ def load_jobs_from_db(id=None):
           result = conn.execute(text("SELECT * FROM JobPosts"))
           jobs = [r._asdict() for r in result.all()]
           return jobs
+
+
+# remove job from the database
+def remove_job_from_db(job_id):
+  with engine.connect() as conn:
+    query = text("DELETE FROM JobPosts where id = :id")
+    conn.execute(query, {"id": job_id})
