@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from flask import Flask, redirect, render_template, request, url_for, jsonify
-from flask_bootstrap import Bootstrap4
+from flask_bootstrap import Bootstrap
 
 from database import add_client, add_job_to_db, load_jobs_from_db, remove_job_from_db
 
@@ -9,7 +9,7 @@ from forms import ContactForm, FAQForm, JobPostForm, LoginForm, RegisterForm
 
 app = Flask(__name__)
 app.secret_key = "atlantis@2023"
-Bootstrap4(app)
+Bootstrap(app)
 
 current_year = datetime.now().year
 
