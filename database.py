@@ -61,7 +61,7 @@ def add_job_to_db(data):
 def load_jobs_from_db(id=None):
   if id:
       with engine.connect() as conn:
-          result = conn.execute(text("SELECT * FROM JobPosts WHERE id = :val"), {"val": id})
+          result = conn.execute(text("SELECT * FROM JobPosts WHERE jobID = :val"), {"val": id})
           jobs = [r._asdict() for r in result.all()]
           return jobs
   else:
@@ -75,5 +75,5 @@ def load_jobs_from_db(id=None):
 # remove job from the database
 def remove_job_from_db(job_id):
   with engine.connect() as conn:
-    query = text("DELETE FROM JobPosts where id = :id")
-    conn.execute(query, {"id": job_id})
+    query = text("DELETE FROM JobPosts where jobID = :jobID")
+    conn.execute(query, {"jobID": job_id})

@@ -14,7 +14,8 @@
     </div>
     <div class="col-3" style="padding-top: 16px">
       <a href="" type="button" class="btn btn-outline-secondary">Apply</a>
-      <a href="" type="button" class="btn btn-outline-warning">Delete</a>
+      <a href="{{ url_for('delete_job', jobID=job['jobID']) }}" type="button" class="btn btn-outline-warning">Delete</a>
+
     </div>
 
   </div>

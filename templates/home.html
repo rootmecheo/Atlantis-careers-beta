@@ -1,4 +1,4 @@
-{% extends"base.html" %}
+{% extends "base.html" %}
 {% block content %}
   <div class="container ">
     <h1>About Us</h1>
@@ -15,9 +15,9 @@
 
       <div class="row mt-4">
         <div class="col col-9">
-           <h2 class="text-center mt-2 mb-4">Job Opennings</h2>
+           <h2 class="text-center mt-2 mb-4">Job Opennings  ({{ jobs|length }})</h2>
         </div>
-        <div class="col" >
+        <div class="col">
            <a href="{{ url_for('job_post') }}" type="button" class="btn btn-outline-secondary"> Post New Job</a>
         </div>
 
@@ -30,4 +30,4 @@
       </div>
     </div>
   </div>
-{% endblock %}   
+{% endblock %}

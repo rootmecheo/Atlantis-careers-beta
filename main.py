@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from flask import Flask, redirect, render_template, request, url_for, jsonify
-from flask_bootstrap import Bootstrap5
+from flask_bootstrap import Bootstrap4
 
 from database import add_client, add_job_to_db, load_jobs_from_db, remove_job_from_db
 
@@ -9,7 +9,7 @@ from forms import ContactForm, FAQForm, JobPostForm, LoginForm, RegisterForm
 
 app = Flask(__name__)
 app.secret_key = "atlantis@2023"
-Bootstrap5(app)
+Bootstrap4(app)
 
 current_year = datetime.now().year
 
@@ -45,13 +45,13 @@ def job_post():
     return redirect(url_for("home"))
   return render_template('job_post.html', form=form, year=current_year)
 
-@app.route("/job/<int:id>/delete")
+@app.route("/job/<int:jobID>/delete")
 def delete_job(jobID):
     # Assuming load_jobs_from_db returns the job with the given id
   job = load_jobs_from_db(jobID)[0]
 
   if job:
-    remove_job_from_db(id)
+    remove_job_from_db(jobID)
     return jsonify(job)
     # return redirect(url_for("home"))  
   else:
