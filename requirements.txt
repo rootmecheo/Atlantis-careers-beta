@@ -5,3 +5,4 @@ gunicorn
 sqlalchemy
 mysql
 pymysql
+Flask-Bootstrap
