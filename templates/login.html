@@ -4,23 +4,29 @@
 {% block title %}Login Page{% endblock %}
 
 {% block content %}
+<style>
+  .card {
+    border: 1px solid transparent; /* Set initial border style */
+    transition: border-color 0.9s ease; /* Apply transition effect to border-color */
+  }
+
+  .card:hover {
+    border-color: #189987; /* Change border color on hover */
+  }
+
+</style>
+
 <div class="container">
   
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-4">
-      <h3>Please login below</h3>
+  <div class="row ">
+    <div class="col-1 "></div>
+    <div class="col-4 card p-4">
+      <h4>Please login below</h4>
       {{ render_form(form) }}
+
     </div>
     <div class="col"></div>
   </div>
-  {% for field, errors in form.errors.items() %}
-  <h3> Please check the following errors: </h3>
-    <ol>
-      {% for error in errors %}
-        <li>{{ error }}</li>
-      {% endfor %}
-    </ol>
-  {% endfor %}
+  
 </div>
 {% endblock %}

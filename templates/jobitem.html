@@ -1,18 +1,18 @@
 <section>
-  <div class="border-bottom row" style="padding-bottom:8px; margin-bottom:4px">
+  <div class="border-bottom row p-3 " style="padding-bottom:8px; margin-bottom:4px">
 
     <div class="col-9" style="margin-bottom: 8px">
-       <a href="" style="color:rgb(120,120,120)" >{{job['title']}}</a>
-      <div>
+
+       <a href="{{ url_for('update_job', jobID=job['jobID']) }}" style="color:rgb(120,120,120)" ><b>{{job['title']}}</b></a>
+      
          <p>  <b>Location:</b>  {{job['location']}}</p>
         {% if "salary" in job%}
-        <p>  <b>Salary:</b> {{ job['currency']}}  {{job['salary']}}</p>
-        {% endif %}
-
-      </div>
+        <p>  <b>Stipend:</b> {{ job['currency']}}  {{job['salary']}}</p>
+        <p><b>Posted:</b>   {{ job['time_difference'] }}</p>   
+      {% endif %} 
 
     </div>
-    <div class="col-3" style="padding-top: 16px">
+    <div class="col" style="padding-top: 16px">
       <a href="" type="button" class="btn btn-outline-secondary">Apply</a>
       <a href="{{ url_for('delete_job', jobID=job['jobID']) }}" type="button" class="btn btn-outline-warning">Delete</a>
 

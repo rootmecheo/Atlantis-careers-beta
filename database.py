@@ -77,3 +77,25 @@ def remove_job_from_db(job_id):
   with engine.connect() as conn:
     query = text("DELETE FROM JobPosts where jobID = :jobID")
     conn.execute(query, {"jobID": job_id})
+
+# update job in the database
+def update_job_in_db(job_id, new_data):
+  try:
+      with engine.connect() as conn:
+          query = text("""
+              UPDATE jobs
+              SET title = :title,
+                  location = :location,
+                  facility = :facility,
+                  time = :time,
+                  duration = :duration,
+                  description = :description,
+                  responsibilities = :responsibilities,
+                  requirements = :requirements,
+                  salary = :salary,
+                  currency = :currency,
+              WHERE jobID = :jobID
+          """)
+          conn.execute(query, {**new_data, "jobID": job_id})
+  except Exception as e:
+      print(f"Error occurred while updating job: {e}")

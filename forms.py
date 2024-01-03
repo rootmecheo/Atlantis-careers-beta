@@ -1,3 +1,5 @@
+from datetime import datetime
+import pytz
 from flask_wtf import FlaskForm
 from wtforms import IntegerField, PasswordField, StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, Length
@@ -47,7 +49,7 @@ class JobPostForm(FlaskForm):
   requirements = TextAreaField(label="Job Requirements", validators=[DataRequired()])
   salary = IntegerField(label="Salary", validators=[DataRequired()])
   currency = StringField(label="Currency", validators=[DataRequired()])
-  submit = SubmitField(label="Post Job")
+  submit = SubmitField(label="Submit Job")
 
 # create FAQ form
 class FAQForm(FlaskForm):
@@ -57,3 +59,36 @@ class FAQForm(FlaskForm):
 # create profile form
 
 # create aply  job form
+
+def format_time_difference(timestamp):
+  # Convert the datetime object to Nairobi timezone
+  nairobi_tz = pytz.timezone('Africa/Nairobi')
+  timestamp = pytz.utc.localize(timestamp).astimezone(nairobi_tz)
+
+  # Get the current time in Nairobi timezone
+  current_time = datetime.now(nairobi_tz)
+
+  # Calculate the time difference
+  time_difference = current_time - timestamp
+
+  # Extract time difference in days, hours, and minutes
+  days = time_difference.days
+  total_seconds = time_difference.total_seconds()
+  hours = total_seconds // 3600
+  minutes = (total_seconds % 3600) // 60
+
+  if days >= 365:
+      years = days // 365
+      return f"{years} years ago"
+  elif days >= 28:
+      months = days // 30
+      return f"{months} months ago"
+  elif days >= 7:
+      weeks = days // 7
+      return f"{weeks} weeks ago"
+  elif days >= 1:
+      return f"{days} days ago"
+  elif hours >= 1:
+      return f"{int(hours)} hours ago"
+  else:
+      return f"{int(minutes)} minutes ago"
