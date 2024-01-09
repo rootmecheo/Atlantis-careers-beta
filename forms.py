@@ -65,13 +65,14 @@ def format_time_difference(timestamp):
   nairobi_tz = pytz.timezone('Africa/Nairobi')
   timestamp = pytz.utc.localize(timestamp).astimezone(nairobi_tz)
 
-  # Get the current time in Nairobi timezone
+   #Get the current time in Nairobi timezone
   current_time = datetime.now(nairobi_tz)
 
-  # Calculate the time difference
+   #Calculate the time difference
+  
   time_difference = current_time - timestamp
 
-  # Extract time difference in days, hours, and minutes
+   #Extract time difference in days, hours, and minutes
   days = time_difference.days
   total_seconds = time_difference.total_seconds()
   hours = total_seconds // 3600

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Clients List {% endblock %}
+
+{% block content  %} 
+
+<section>
+  <div class="row mt-4">
+    <div class="col col-9">
+       <h2 class="text-center mt-2 mb-4">Clients List  ({{ clients|length }})</h2>
+    </div>
+  </div>
+  {% for client in clients %}
+  <div class="border-bottom row p-3  " style="padding-bottom:8px; margin-bottom:4px">
+
+    <div class='col-1'></div>
+
+    <div class="col-9 " style="margin-bottom: 8px">
+
+       <h4> <a href="" style="color:rgb(120,120,120)" ><b>{{client['name']}}</b></a></h4>
+
+         <p>  <b>Title:</b>  {{client['title']}}</p>
+         <p>  <b>Location:</b>  {{client['location']}}</p>
+         <p>  <b>Posts:</b>  {{client['phone']}}</p>
+         <p><b>Member Since:</b> {{ client['time_difference'] }}  </p>   
+
+    </div>
+    <div class="col" style="padding-top: 16px">
+      
+      <a href="" type="button" class="btn btn-outline-warning">Remove Client</a>
+
+    </div>
+
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}
