@@ -3,6 +3,7 @@ Flask-WTF
 Flask-CKEditor
 gunicorn
 sqlalchemy
+flask-sqlalchemy
 mysql
 pymysql
 Flask-Bootstrap==3.3.7.1
