@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 from flask import Flask, jsonify, redirect, render_template, request, url_for
-from flask_bootstrap import Bootstrap4
+from flask_bootstrap import Bootstrap
 from werkzeug.security import generate_password_hash
 
 #from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
@@ -27,7 +27,7 @@ from forms import (
 
 app = Flask(__name__)
 app.secret_key = "atlantis@2023"
-Bootstrap4(app)
+Bootstrap(app)
 
 with app.app_context():
   Base.metadata.create_all(bind=engine)
